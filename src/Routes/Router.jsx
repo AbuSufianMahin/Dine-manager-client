@@ -3,6 +3,11 @@ import MainLayout from '../Layouts/MainLayout';
 import HomePage from '../Components/Pages/HomePage';
 import AddFoodPage from '../Components/Pages/AddFoodPage';
 import AuthLayout from '../Layouts/AuthLayout';
+import LoginPage from '../Components/Pages/LoginPage';
+import AllFood from '../Components/Pages/AllFood';
+import MyAddedFoods from '../Components/Pages/MyAddedFoods';
+import FoodGallery from '../Components/Pages/FoodGallery';
+import MyOrders from '../Components/Pages/MyOrders';
 
 const router = createBrowserRouter([
     {
@@ -10,18 +15,45 @@ const router = createBrowserRouter([
         Component: MainLayout,
         children: [
             {
-                index:true,
+                index: true,
                 Component: HomePage
             },
             {
-                path:'/add-food',
+                path: '/add-food',
                 Component: AddFoodPage
+            },
+            {
+                path:'/all-food',
+                Component: AllFood
+            },
+            {
+                path: "/my-added-food",
+                Component: MyAddedFoods
+            },
+            {
+                path: "/food-gallery",
+                Component: FoodGallery
+            },
+            {
+                path: '/my-orders',
+                Component: MyOrders
             }
         ]
     },
     {
         path: '/authentication',
-        Component: AuthLayout
+        Component: AuthLayout,
+        children: [
+            {
+                index: true,
+                Component: LoginPage,
+            },
+            {
+                path: 'login',
+                Component: LoginPage
+            }
+        ]
+
     }
 ]);
 
