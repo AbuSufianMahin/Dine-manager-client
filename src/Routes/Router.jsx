@@ -8,6 +8,7 @@ import AllFood from '../Components/Pages/AllFood';
 import MyAddedFoods from '../Components/Pages/MyAddedFoods';
 import FoodGallery from '../Components/Pages/FoodGallery';
 import MyOrders from '../Components/Pages/MyOrders';
+import RegisterPage from '../Components/Pages/RegisterPage';
 
 const router = createBrowserRouter([
     {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
             {
                 path: 'login',
                 Component: LoginPage
+            },
+            {
+                path: 'register',
+                Component: RegisterPage
             }
         ]
 
