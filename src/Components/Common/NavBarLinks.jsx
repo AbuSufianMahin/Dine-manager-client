@@ -19,7 +19,7 @@ const NavBarLinks = () => {
                         <li key={index} className='mr-5 font-semibold'><NavLink
                             to={linkInfo.path}
                             className={({ isActive }) =>
-                                isActive ? "text-base-100 border-b-2 border-base-100 rounded-none" : ""
+                                isActive ? "border-b-2 rounded-none" : ""
                             }>
                             {linkInfo.name}
                         </NavLink>

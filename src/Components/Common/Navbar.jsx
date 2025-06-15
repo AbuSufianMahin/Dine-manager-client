@@ -21,7 +21,14 @@ const Navbar = () => {
                             tabIndex="0"
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                             <NavBarLinks></NavBarLinks>
+                            <div className="divider"></div>
+                            <p>Theme Controller: </p>
+                            <div className='mt-2'> 
+                                <ThemeToggler></ThemeToggler>
+                            </div>
                         </ul>
+
+
                     </div>
                     <Link className="text-xl font-bold" to='/'>Dine Manager</Link>
                 </div>
@@ -32,7 +39,7 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end items-center gap-2 md:gap-5">
 
-                    <div>
+                    <div className='hidden md:flex'>
                         <ThemeToggler></ThemeToggler>
                     </div>
 
