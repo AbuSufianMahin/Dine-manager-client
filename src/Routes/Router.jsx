@@ -9,6 +9,7 @@ import MyAddedFoods from '../Components/Pages/MyAddedFoods';
 import FoodGallery from '../Components/Pages/FoodGallery';
 import MyOrders from '../Components/Pages/MyOrders';
 import RegisterPage from '../Components/Pages/RegisterPage';
+import PrivateRoute from '../Provider/PrivateRoute';
 
 const router = createBrowserRouter([
     {
@@ -21,10 +22,13 @@ const router = createBrowserRouter([
             },
             {
                 path: '/add-food',
-                Component: AddFoodPage
+                element:
+                    <PrivateRoute>
+                        <AddFoodPage></AddFoodPage>
+                    </PrivateRoute>
             },
             {
-                path:'/all-food',
+                path: '/all-food',
                 Component: AllFood
             },
             {
@@ -37,7 +41,10 @@ const router = createBrowserRouter([
             },
             {
                 path: '/my-orders',
-                Component: MyOrders
+                element:
+                    <PrivateRoute>
+                        <MyOrders></MyOrders>
+                    </PrivateRoute>
             }
         ]
     },
