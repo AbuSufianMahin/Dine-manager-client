@@ -9,7 +9,6 @@ const ThemeToggler = () => {
     }, [theme]);
 
     const toggleTheme = () => {
-        console.log('clicked')
         if (theme === 'light') {
             setTheme("dark")
         }
@@ -18,10 +17,6 @@ const ThemeToggler = () => {
         }
 
     };
-
-    // console.log(theme);
-
-
 
     return (
         <label className="toggle text-base-content bg-base-200 toggle-xl border-2 rounded-full">

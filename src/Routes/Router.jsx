@@ -4,12 +4,14 @@ import HomePage from '../Components/Pages/HomePage';
 import AddFoodPage from '../Components/Pages/AddFoodPage';
 import AuthLayout from '../Layouts/AuthLayout';
 import LoginPage from '../Components/Pages/LoginPage';
-import AllFood from '../Components/Pages/AllFood';
+
 import MyAddedFoods from '../Components/Pages/MyAddedFoods';
 import FoodGallery from '../Components/Pages/FoodGallery';
 import MyOrders from '../Components/Pages/MyOrders';
 import RegisterPage from '../Components/Pages/RegisterPage';
 import PrivateRoute from '../Provider/PrivateRoute';
+import AllFoodPage from '../Components/Pages/AllFoodPage';
+import FoodDetails from '../Components/Pages/FoodDetails';
 
 const router = createBrowserRouter([
     {
@@ -28,8 +30,13 @@ const router = createBrowserRouter([
                     </PrivateRoute>
             },
             {
-                path: '/all-food',
-                Component: AllFood
+                path: '/food-details',
+                Component: AllFoodPage,
+            },
+            {
+                path: '/food/:id',
+                // loader: ({params}) => fetch(`http://localhost:3000/food-details/${params.id}`),
+                Component: FoodDetails
             },
             {
                 path: "/my-added-food",

@@ -6,7 +6,7 @@ const NavBarLinks = () => {
 
     const allLinkInfo = [
         { name: "Home", path: "/" },
-        { name: "All foods", path: "/all-food" },
+        { name: "All foods", path: "/food-details" },
         { name: "Gallery", path: "/food-gallery" },
     ]
 
