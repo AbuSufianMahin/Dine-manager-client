@@ -1,11 +1,11 @@
 import React from 'react';
 
 const PurchaseFoodPage = () => {
-    return (
+    return(
         <div>
             
         </div>
-    );
+    )
 };
 
 export default PurchaseFoodPage;
