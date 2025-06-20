@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import LoadingBars from '../Common/LoadingBars';
 import AllFoodCard from '../AllFoodPageLayout/AllFoodCard';
 import NoFoodAdded from '../AllFoodPageLayout/NoFoodAdded';
+import SortByOptions from '../AllFoodPageLayout/SortByOptions';
 
 
 const AllFoodPage = () => {
@@ -13,9 +14,7 @@ const AllFoodPage = () => {
             setDataLoading(false);
         });
     }, []);
-
-    console.log(dataLoading)
-
+    
     return (
         <section className='py-5 md:py-10 lg:py-20'>
             <div className='w-11/12 md:w-10/12 mx-auto'>
@@ -26,13 +25,18 @@ const AllFoodPage = () => {
                             <LoadingBars></LoadingBars>
                         </div>
                         :
-                        <div className='grid md:grid-cols-2 lg:grid-cols-4 mt-10 gap-5'>
-                            {
-                                allFoodData.length === 0 ?
-                                    <NoFoodAdded></NoFoodAdded>
-                                    :
-                                    allFoodData.map(foodDetails => <AllFoodCard key={foodDetails._id} foodDetails={foodDetails}></AllFoodCard>)
-                            }
+                        <div className='mt-5 md:mt-10'>
+                            <div className='flex justify-center md:justify-end'>
+                                <SortByOptions  allFoodData={allFoodData} setAllFoodData={setAllFoodData} dataLoading={dataLoading} setDataLoading={setDataLoading}></SortByOptions>
+                            </div>
+                            <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-3 mt-5'>
+                                {
+                                    allFoodData.length === 0 ?
+                                        <NoFoodAdded></NoFoodAdded>
+                                        :
+                                        allFoodData.map(foodDetails => <AllFoodCard key={foodDetails._id} foodDetails={foodDetails}></AllFoodCard>)
+                                }
+                            </div>
                         </div>
                 }
             </div>

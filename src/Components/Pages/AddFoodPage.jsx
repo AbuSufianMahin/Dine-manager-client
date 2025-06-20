@@ -15,7 +15,8 @@ const AddFoodPage = () => {
 
         const formData = new FormData(form);
         const foodDetails = Object.fromEntries(formData.entries());
-        console.log(foodDetails);
+        foodDetails.price = parseFloat(foodDetails.price);
+        foodDetails.quantity = parseInt(foodDetails.quantity);
 
         axios.post('http://localhost:3000/add-food', foodDetails)
             .then(res => {
@@ -27,6 +28,7 @@ const AddFoodPage = () => {
                         })
                 }
             })
+
     }
     return (
         <section className='mt-10 mb-20'>

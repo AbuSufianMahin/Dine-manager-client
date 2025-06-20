@@ -12,6 +12,7 @@ import RegisterPage from '../Components/Pages/RegisterPage';
 import PrivateRoute from '../Provider/PrivateRoute';
 import AllFoodPage from '../Components/Pages/AllFoodPage';
 import FoodDetails from '../Components/Pages/FoodDetails';
+import PurchaseFoodPage from '../Components/Pages/PurchaseFoodPage';
 
 const router = createBrowserRouter([
     {
@@ -34,9 +35,13 @@ const router = createBrowserRouter([
                 Component: AllFoodPage,
             },
             {
-                path: '/food/:id',
-                // loader: ({params}) => fetch(`http://localhost:3000/food-details/${params.id}`),
+                path: '/food-details/:id',
+                loader: ({params}) => fetch(`http://localhost:3000/food-details/${params.id}`),
                 Component: FoodDetails
+            },
+            {
+                path: '/purchase-food/:id',
+                Component: PurchaseFoodPage,
             },
             {
                 path: "/my-added-food",
