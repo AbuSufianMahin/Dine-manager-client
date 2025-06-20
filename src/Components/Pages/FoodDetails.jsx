@@ -4,7 +4,7 @@ import { Link, useLoaderData, useNavigate } from 'react-router';
 const FoodDetails = () => {
 
     const navigate = useNavigate();
-    const { foodName, foodImageURL, foodDescription, foodCategory, price, foodOrigin, quantity } = useLoaderData();
+    const { _id, foodName, foodImageURL, foodDescription, foodCategory, price, foodOrigin, quantity } = useLoaderData();
 
 
     return (
@@ -41,10 +41,9 @@ const FoodDetails = () => {
                             </div>
                         </div>
 
-                        {/* CTA Button */}
-                        <button className="btn btn-primary w-full text-white">
-                            Order Now
-                        </button>
+                        <Link to={`/purchase-food/${_id}`}>
+                            <button className="btn btn-primary w-full text-white">Order Now</button>
+                        </Link>
                     </div>
                 </div>
             </div>

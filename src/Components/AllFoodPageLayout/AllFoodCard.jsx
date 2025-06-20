@@ -22,7 +22,7 @@ const AllFoodCard = ({ foodDetails }) => {
                 </div>
                 <div className='flex gap-2'>
                     <Link className='flex-1 btn btn-primary text-white' to={`/food-details/${_id}`}>View Details</Link>
-                    <Link className='flex-1 btn btn-primary text-white' to={`/purchase-food/${_id}`}>Purchase Now</Link>
+                    <Link className='flex-1 btn btn-primary text-white' to={`/purchase-food/${_id}`}>Order Now</Link>
                 </div>
             </div>
         </div>

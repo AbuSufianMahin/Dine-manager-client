@@ -32,7 +32,7 @@ const AddFoodPage = () => {
     }
     return (
         <section className='mt-10 mb-20'>
-            <div className='w-11/12 lg:w-7/12 mx-auto'>
+            <div className='w-11/12 lg:w-6/12 mx-auto'>
                 <div className='my-5'>
                     <Link to='/' className='flex items-center gap-2'>
                         <IoArrowBack />
