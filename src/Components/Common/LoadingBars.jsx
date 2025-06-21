@@ -2,7 +2,7 @@ import React from 'react';
 
 const LoadingBars = () => {
     return (
-    <div className='w-fit mx-auto min-h-[50vh]'>
+    <div className='w-fit mx-auto'>
             <span className="loading loading-bars w-10"></span>
         </div>
     );

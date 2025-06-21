@@ -5,8 +5,6 @@ const AllFoodCard = ({ foodDetails }) => {
 
     const { _id, foodName, foodImageURL, foodOrigin, foodCategory, price, } = foodDetails;
 
-
-
     return (
         <div className='shadow-md border border-secondary p-5 rounded-lg'>
             <div className='h-full flex flex-col justify-between'>

@@ -4,8 +4,11 @@ const SortByOptions = ({setAllFoodData, setDataLoading}) => {
 
     const handleSortByOnChange = (option) => {
         setDataLoading(true);
-        fetch(`http://localhost:3000/sorted-food-data?sortBy=${option}`).then(res => res.json()).then(data => setAllFoodData(data));
-        setDataLoading(false);
+        fetch(`http://localhost:3000/sorted-food-data?sortBy=${option}`).then(res => res.json()).then(data => {
+            setAllFoodData(data);
+            setDataLoading(false);
+        });
+        
     }
 
     return (
