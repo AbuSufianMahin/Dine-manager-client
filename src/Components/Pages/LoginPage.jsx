@@ -4,7 +4,6 @@ import loginAnimation from '../../assets/LottieAnimations/loginAnimation.json';
 import Lottie from 'lottie-react';
 import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../../Provider/AuthContext';
-import Swal from 'sweetalert2';
 import { errorAlert, successAlert } from '../../Utility/sweetAlert';
 
 const LoginPage = () => {

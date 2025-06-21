@@ -13,6 +13,7 @@ import PrivateRoute from '../Provider/PrivateRoute';
 import AllFoodPage from '../Components/Pages/AllFoodPage';
 import FoodDetails from '../Components/Pages/FoodDetails';
 import PurchaseFoodPage from '../Components/Pages/PurchaseFoodPage';
+import Error404Page from '../Components/Pages/Error404Page';
 
 const router = createBrowserRouter([
     {
@@ -85,6 +86,10 @@ const router = createBrowserRouter([
             }
         ]
 
+    },
+    {
+        path: '*',
+        Component: Error404Page
     }
 ]);
 
