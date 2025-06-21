@@ -32,7 +32,7 @@ const MyAddedFoods = () => {
                                     :
                                     <div className='min-h-[30vh] grid grid-cols-1 lg:grid-cols-2 gap-5'>
                                         {
-                                           myAddedFoods.map(foodData => <MyAddedFoodsCard key={foodData._id} foodData={foodData}></MyAddedFoodsCard>) 
+                                           myAddedFoods.map(foodData => <MyAddedFoodsCard key={foodData._id} foodData={foodData} myAddedFoods={myAddedFoods} setMyAddedFoods={setMyAddedFoods}></MyAddedFoodsCard>) 
                                         }
                                     </div>
                             }
