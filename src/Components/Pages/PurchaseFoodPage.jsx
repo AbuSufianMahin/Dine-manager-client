@@ -46,7 +46,7 @@ const PurchaseFoodPage = () => {
 
     }
     return (
-        <div className='mt-10 mb-20'>
+        <section className='py-5 md:py-10 lg:py-20'>
             <h1 className='text-center text-2xl md:text-4xl font-bold'>Order food</h1>
             <div className='w-11/12 lg:w-6/12 mx-auto'>
                 <form onSubmit={handlePurchase}>
@@ -100,7 +100,7 @@ const PurchaseFoodPage = () => {
                     }
                 </form>
             </div>
-        </div>
+        </section>
     );
 };
 
