@@ -1,12 +1,35 @@
+import axios from 'axios';
 import React from 'react';
 import { Link } from 'react-router';
+import Swal from 'sweetalert2';
 
 const OrderCard = ({ orderData, allOrders, setAllOrders }) => {
-    console.log(orderData);
-    const {_id, orderId, foodAuthorName, foodImageURL, foodName, orderDate, orderQuantity, price } = orderData;
+    const { _id, orderId, foodAuthorName, foodImageURL, foodName, orderDate, orderQuantity, price } = orderData;
 
     const handleCancelOrder = (orderId) => {
-        console.log(orderId);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.delete(`http://localhost:3000/order/${orderId}`)
+                    .then(res => {
+                        if (res.data.deletedCount) {
+                            setAllOrders(allOrders.filter(order => order.orderId !== orderId));
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Food Item has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    });
+            }
+        });
     }
 
     return (
