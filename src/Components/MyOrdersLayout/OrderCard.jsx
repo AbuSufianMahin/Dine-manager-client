@@ -14,7 +14,8 @@ const OrderCard = ({ orderData, allOrders, setAllOrders }) => {
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
+            confirmButtonText: "Confirm Cancellation",
+            cancelButtonText: "Dismiss"
         }).then((result) => {
             if (result.isConfirmed) {
                 axios.delete(`http://localhost:3000/order/${orderId}`)

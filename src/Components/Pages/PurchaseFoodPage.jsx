@@ -11,6 +11,7 @@ const PurchaseFoodPage = () => {
     const foodDetails = useLoaderData();
     const { _id, quantity, foodAuthorEmail, foodName, price } = foodDetails;
 
+    const [initialQuantity, setInitialQunatity] = useState(quantity);
     const [remainingQuantity, setRemainingQuantity] = useState(quantity);
     const [orderDate, setOrderDate] = useState({});
 
@@ -19,14 +20,15 @@ const PurchaseFoodPage = () => {
         setOrderDate(dateToday);
     }, []);
 
-    const handleQuantityOnChange = (e) => {
-        if (quantity - e.target.value < 0) {
-            e.target.value = quantity;
 
-            errorToastAlert("You cannot order more than the available stock.");
+    const handleQuantityOnChange = (e) => {
+        if (initialQuantity - e.target.value < 0) {
+            errorToastAlert("You can not purchase more than the stoke available!");
+            e.target.value = initialQuantity;
+            
         }
         else {
-            setRemainingQuantity(quantity - e.target.value);
+            setRemainingQuantity(initialQuantity - e.target.value);
         }
     }
 
@@ -35,15 +37,19 @@ const PurchaseFoodPage = () => {
         const orderQuantity = parseInt(e.target.orderQuantity.value);
         const buyerName = e.target.buyerName.value;
         const buyerEmail = e.target.buyerEmail.value;
+        if (parseInt(orderQuantity) === 0 ){
+            errorToastAlert("You can not order 0 items!");
+            return;
+        }
 
         axios.post('http://localhost:3000/purchase-food', { _id, orderQuantity, buyerName, buyerEmail, orderDate })
             .then((res) => {
                 if (res.data.acknowledged) {
                     successAlert("Order Confirmed!", "Your food order has been placed successfully.")
                     e.target.reset();
+                    setInitialQunatity(initialQuantity - orderQuantity);
                 }
             })
-
     }
     return (
         <section className='py-5 md:py-10 lg:py-20'>
@@ -66,8 +72,6 @@ const PurchaseFoodPage = () => {
                                     :
                                     <p>Remaining Quantity: {remainingQuantity}</p>
                             }
-
-
                         </fieldset>
                         <fieldset className="fieldset">
                             <legend className="fieldset-legend text-lg">Price</legend>
