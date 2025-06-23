@@ -10,7 +10,7 @@ const AllFoodCard = ({ foodDetails }) => {
             <div className='h-full flex flex-col justify-between'>
                 <img src={foodImageURL} alt={foodName} className='w-full rounded-xl' />
                 <div className='mt-5 flex flex-col md:flex-row md:items-center gap-2'>
-                    <h3 className='text-xl font-bold'>{foodName}</h3>
+                    <Link to={`/food-details/${_id}`}><h3 className='text-xl font-bold transition duration-200 hover:text-primary '>{foodName}</h3></Link>
                     <p className='text-center rounded-xl bg-sky-400 w-fit px-2'>{foodCategory}</p>
                 </div>
 

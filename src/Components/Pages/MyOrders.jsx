@@ -20,7 +20,6 @@ const MyOrders = () => {
     return (
         <section className='py-5 md:py-10 lg:py-20'>
             <div className='w-11/12 md:w-10/12 lg:w-1/2 mx-auto'>
-                <h1 className='text-center text-3xl md:text-4xl font-bold'>Active orders</h1>
                 {
                     isLoading ?
                         <div className='mt-5 min-h-[30vh]'>

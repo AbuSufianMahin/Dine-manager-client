@@ -1,13 +1,14 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useState } from 'react';
 import { CgMoreO } from 'react-icons/cg';
 import { MdDelete, MdEdit } from 'react-icons/md';
 import { Link } from 'react-router';
 import Swal from 'sweetalert2';
+import EditFoodButton from './EditFoodButton';
 
 const MyAddedFoodsCard = ({ foodData, myAddedFoods, setMyAddedFoods }) => {
-
-    const { _id, foodImageURL, foodName, foodCategory, foodDescription, price, foodOrigin, quantity } = foodData;
+    const [foodDetails, setFoodDetails] = useState(foodData);
+    const { _id, foodImageURL, foodName, foodCategory, foodDescription, price, foodOrigin, quantity } = foodDetails;
 
     const handleDelete = (foodId) => {
         Swal.fire({
@@ -57,7 +58,7 @@ const MyAddedFoodsCard = ({ foodData, myAddedFoods, setMyAddedFoods }) => {
 
             <div className='flex md:flex-col justify-between gap-3'>
                 <Link to={`/food-details/${_id}`}><button className='btn btn-sm btn-info text-white'><CgMoreO size={20} /></button></Link>
-                <button className='btn btn-sm bg-gray-700 text-white'><MdEdit size={20} /></button>
+                <EditFoodButton foodDetails={foodDetails} setFoodDetails={setFoodDetails}></EditFoodButton>
                 <button className='btn btn-sm btn-error text-white' onClick={() => handleDelete(_id)}><MdDelete size={20} /></button>
             </div>
         </div>
