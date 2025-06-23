@@ -2,8 +2,10 @@ import React, { use, useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../Provider/AuthContext';
-import Swal from 'sweetalert2';
 import { errorAlert, successAlert } from '../../Utility/sweetAlert';
+import Lottie from 'lottie-react';
+
+import registerAnimation from '../../assets/LottieAnimations/registerAnimation.json'
 
 const RegisterPage = () => {
     const { createUserWithEmail, googleSignIn, updateDisplayName, updatePhotoURL } = use(AuthContext);
@@ -71,7 +73,7 @@ const RegisterPage = () => {
         <section className='bg-base-200'>
             <div className='w-11/12 md:w-10/12 mx-auto py-5 md:py-10 lg:py-20'>
                 <h1 className='text-center text-4xl font-bold'>Register Now</h1>
-                <div className='grid lg:grid-cols-2 items-center mt-10 gap-10 shadow-sm rounded-2xl px-10 py-10 bg-base-100'>
+                <div className='grid lg:grid-cols-2 items-center mt-10 gap-10 shadow-sm rounded-2xl p-6 md:p-10 bg-base-100'>
                     <div className='w-full'>
                         <form onSubmit={handleRegisterWithEmail}>
                             <fieldset className="fieldset">
@@ -152,9 +154,18 @@ const RegisterPage = () => {
                         </form>
                         <p className='text-gray-500 mt-5'>Already have an account? <Link className='text-blue-500 underline' to="/authentication/register">Login</Link> now!</p>
                     </div>
+                    <div className='hidden lg:flex justify-center'>
+                        <Lottie animationData={registerAnimation}
+                            style={{
+                                height: "50vh"
+                            }}
+                            loop={false}
+                            
+                        ></Lottie>
                 </div>
             </div>
-        </section>
+        </div>
+        </section >
     );
 };
 
