@@ -1,16 +1,23 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import loginAnimation from '../../assets/LottieAnimations/loginAnimation.json';
 import Lottie from 'lottie-react';
-import { Link, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../Provider/AuthContext';
 import { errorAlert, successAlert } from '../../Utility/sweetAlert';
+import { warningToastAlert } from '../../Utility/toastAlert';
 
 const LoginPage = () => {
-
     const { googleSignIn, emailSignIn } = useContext(AuthContext);
 
     const navigate = useNavigate();
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.state) {
+            warningToastAlert('You need to log in first!');
+        }
+    }, [location.state])
 
     const handleSignInWithEmail = (e) => {
         e.preventDefault();
@@ -21,8 +28,8 @@ const LoginPage = () => {
         emailSignIn(email, password)
             .then(() => {
                 successAlert("Welcome!", "You've successfully logged in.")
-                .then(() => {
-                        navigate('/');
+                    .then(() => {
+                        navigate(location.state || '/');
                     })
             })
             .catch(error => errorAlert(error.message))
@@ -33,7 +40,7 @@ const LoginPage = () => {
             .then(() => {
                 successAlert("Welcome!", "You've successfully logged in.")
                     .then(() => {
-                        navigate('/');
+                        navigate(location.state || '/');
                     })
             })
             .catch(error => errorAlert(error.message))

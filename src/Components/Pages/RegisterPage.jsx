@@ -1,6 +1,6 @@
 import React, { use, useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../Provider/AuthContext';
 import Swal from 'sweetalert2';
 import { errorAlert, successAlert } from '../../Utility/sweetAlert';
@@ -15,6 +15,7 @@ const RegisterPage = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
 
     const navigate = useNavigate();
+    const location = useLocation();
 
     const handleRegisterWithEmail = (e) => {
         e.preventDefault();
@@ -45,7 +46,7 @@ const RegisterPage = () => {
 
                 successAlert('Welcome!', "You've successfully registered!")
                     .then(() => {
-                        navigate('/');
+                        navigate(location.state || '/');
                     })
             })
             .catch((error) => {
@@ -60,7 +61,7 @@ const RegisterPage = () => {
             .then(() => {
                 successAlert("Welcome!", "You've successfully registered.")
                     .then(() => {
-                        navigate('/');
+                        navigate(location.state || '/');
                     })
             })
             .catch(error => console.log(error))
