@@ -2,7 +2,6 @@ import React from 'react';
 import OrderCard from './OrderCard';
 
 const OrderCardContainer = ({ allOrders, setAllOrders }) => {
-    // console.log(allOrders)
     return (
         <div className='my-5 space-y-5 min-h-[35vh]'>
             <h1 className='text-center text-3xl md:text-4xl font-bold'>Active orders</h1>

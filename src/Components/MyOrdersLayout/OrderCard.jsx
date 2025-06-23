@@ -34,11 +34,11 @@ const OrderCard = ({ orderData, allOrders, setAllOrders }) => {
     }
 
     return (
-        <div className='border border-secondary p-5 rounded-lg flex flex-col md:flex-row items-center gap-5 shadow-md'>
+        <div className='border border-secondary p-5 w-fit md:w-auto mx-auto rounded-lg flex flex-col md:flex-row items-center gap-5 shadow-md'>
             <div className='md:flex-2 lg:flex-1'>
-                <img src={foodImageURL} alt={foodName} className='mx-auto rounded-xl' />
+                <img src={foodImageURL} alt={foodName} className='mx-auto rounded-xl w-full' />
             </div>
-            <div className='flex-3'>
+            <div className='flex-3 lg:flex-2'>
                 <div className='flex justify-between'>
                     <Link to={`/food-details/${_id}`}><h2><span className='text-2xl md:text-3xl font-bold transition duration-200 hover:text-primary'>{foodName}</span> x {orderQuantity}</h2></Link>
                     <p className='md:text-lg font-semibold'>BDT {price * orderQuantity}</p>

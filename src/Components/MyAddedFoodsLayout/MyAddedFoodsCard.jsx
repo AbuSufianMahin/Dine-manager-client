@@ -44,7 +44,7 @@ const MyAddedFoodsCard = ({ foodData, myAddedFoods, setMyAddedFoods }) => {
                 </div>
                 <div className='flex-1'>
                     <div className='flex items-center gap-3'>
-                        <h1 className='text-xl font-bold'>{foodName}</h1>
+                        <Link><h1 className='text-2xl font-bold transition duration-200 hover:text-primary'>{foodName}</h1></Link>
                         <p className='text-center rounded-xl bg-sky-400 w-fit px-2'>{foodCategory}</p>
                     </div>
 
