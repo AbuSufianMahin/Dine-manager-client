@@ -37,10 +37,12 @@ const MyAddedFoodsCard = ({ foodData, myAddedFoods, setMyAddedFoods }) => {
     }
 
     return (
-        <div className='border border-primary p-5 rounded-xl flex flex-col md:flex-row justify-between items-center gap-5'>
-            <div className='flex flex-col md:flex-row gap-5'>
-                <img src={foodImageURL} alt={`${foodName} image`} className='rounded-xl w-full md:w-1/2 lg:w-full' />
-                <div>
+        <div className='border border-primary p-5 rounded-xl flex flex-col md:flex-row lg:flex-col xl:flex-row justify-between items-center gap-5'>
+            <div className='flex flex-col md:flex-row lg:flex-col xl:flex-row items-center gap-5'>
+                <div className='flex-1'>
+                    <img src={foodImageURL} alt={`${foodName} image`} className='rounded-xl w-full'/>
+                </div>
+                <div className='flex-1'>
                     <div className='flex items-center gap-3'>
                         <h1 className='text-xl font-bold'>{foodName}</h1>
                         <p className='text-center rounded-xl bg-sky-400 w-fit px-2'>{foodCategory}</p>
@@ -56,7 +58,7 @@ const MyAddedFoodsCard = ({ foodData, myAddedFoods, setMyAddedFoods }) => {
                 </div>
             </div>
 
-            <div className='flex md:flex-col justify-between gap-3'>
+            <div className='flex md:flex-col lg:flex-row xl:flex-col justify-between gap-3'>
                 <Link to={`/food-details/${_id}`}><button className='btn btn-sm btn-info text-white'><CgMoreO size={20} /></button></Link>
                 <EditFoodButton foodDetails={foodDetails} setFoodDetails={setFoodDetails}></EditFoodButton>
                 <button className='btn btn-sm btn-error text-white' onClick={() => handleDelete(_id)}><MdDelete size={20} /></button>
