@@ -8,7 +8,7 @@ import EditFoodButton from './EditFoodButton';
 
 const MyAddedFoodsCard = ({ foodData, myAddedFoods, setMyAddedFoods }) => {
     const [foodDetails, setFoodDetails] = useState(foodData);
-    const { _id, foodImageURL, foodName, foodCategory, foodDescription, price, foodOrigin, quantity } = foodDetails;
+    const { _id, foodImageURL, foodName, foodCategory, foodDescription, price, quantity, totalSold } = foodDetails;
 
     const handleDelete = (foodId) => {
         Swal.fire({
@@ -48,11 +48,12 @@ const MyAddedFoodsCard = ({ foodData, myAddedFoods, setMyAddedFoods }) => {
                         <p className='text-center rounded-xl bg-sky-400 w-fit px-2'>{foodCategory}</p>
                     </div>
 
-                    <p className='line-clamp-3 my-3'>{foodDescription}</p>
+                    <p className='line-clamp-2 my-3'>{foodDescription}</p>
 
                     <p><span className='font-semibold'>Price: </span>{price} BDT</p>
-                    <p><span className='font-semibold'>Origin: </span>{foodOrigin}</p>
-                    <p><span className='font-semibold'>Quantity: </span>{quantity}</p>
+
+                    <p><span className='font-semibold'>Total Sold : </span>{totalSold}</p>
+                    <p><span className='font-semibold'>Remaining : </span>{quantity}</p>
 
 
                 </div>

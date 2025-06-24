@@ -15,7 +15,7 @@ const HeroSection = () => {
                 <div className='text-center md:text-start lg:py-10 mt-10 text-white'>
                     <h1 className='text-4xl lg:text-6xl font-semibold'>The Taste that make you feel awesome </h1>
                     <p className='my-5 lg:text-lg'>Experience mouthwatering flavors crafted with care. From the first bite to the last, every dish is made to delight your senses and leave you craving more.</p>
-                    <Link to='/food-details'><button className='btn btn-accent text-white'>Explore Out Menu</button></Link>
+                    <Link to='/food-details'><button className='btn btn-accent text-white'>Explore Our Menu</button></Link>
                 </div>
                 <div className='md:mt-5 w-11/12 md:w-1/2'>
                     <Swiper
