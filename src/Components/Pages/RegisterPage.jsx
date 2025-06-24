@@ -160,7 +160,6 @@ const RegisterPage = () => {
                                 height: "50vh"
                             }}
                             loop={false}
-                            
                         ></Lottie>
                 </div>
             </div>
