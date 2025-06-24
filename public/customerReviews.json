@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "username": "Eliza Cohen",
+        "userPhotoURL": "https://i.ibb.co/nqNd1Ds0/ash.jpg",
+        "rating": 5,
+        "description": "The sushi was incredibly fresh and flavorful — every bite melted in my mouth. Absolutely top-tier!"
+    },
+    {
+        "id": 2,
+        "username": "John Wick",
+        "userPhotoURL": "https://i.ibb.co/sdwRDKcQ/john-wick.jpg",
+        "rating": 4.5,
+        "description": "Loved the spice in the chicken biryani. It hit the right balance of heat and flavor. Delivery could be quicker though."
+    },
+    {
+        "id": 3,
+        "username": "Kratos Uddin",
+        "userPhotoURL": "https://i.ibb.co/DfFTZLD8/kratos.jpg",
+        "rating": 5,
+        "description": "The beef ramen was packed with depth — rich broth, tender meat, and noodles cooked to perfection. A comfort food dream."
+    },
+    {
+        "id": 4,
+        "username": "Warden",
+        "userPhotoURL": "https://i.ibb.co/xK49Fxpw/warden-cropped.jpg",
+        "rating": 4,
+        "description": "The tacos were decent. I liked the flavor but felt the portion size could have been a bit larger."
+    },
+    {
+        "id": 5,
+        "username": "Natasha",
+        "userPhotoURL": "https://i.ibb.co/0y8qcmP2/natasha.jpg",
+        "rating": 4,
+        "description": "Tried the falafel wrap — crispy outside, soft inside, and bursting with herby goodness. Would definitely reorder."
+    },
+    {
+        "id": 6,
+        "username": "Aruni",
+        "userPhotoURL": "https://i.ibb.co/bMW0GsSs/aruni.png",
+        "rating": 5,
+        "description": "Every bite of the pasta felt gourmet. Creamy, cheesy, and perfectly seasoned. Can’t wait for my next order!"
+    }
+]

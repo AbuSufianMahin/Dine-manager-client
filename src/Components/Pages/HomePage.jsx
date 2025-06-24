@@ -3,6 +3,7 @@ import HeroSection from '../HomePageLayout/HeroSection';
 import TopFoodSection from '../HomePageLayout/TopFoodSection';
 
 import WhyChooseUs from '../HomePageLayout/WhyChooseUs';
+import CustomerReviews from '../HomePageLayout/CustomerReviews';
 
 const HomePage = () => {
     return (
@@ -12,6 +13,7 @@ const HomePage = () => {
 
             {/* static sections */}
             <WhyChooseUs></WhyChooseUs>
+            <CustomerReviews></CustomerReviews>
         </div>
     );
 };
