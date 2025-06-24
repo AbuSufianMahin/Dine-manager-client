@@ -17,6 +17,7 @@ const AddFoodPage = () => {
         const foodDetails = Object.fromEntries(formData.entries());
         foodDetails.price = parseFloat(foodDetails.price);
         foodDetails.quantity = parseInt(foodDetails.quantity);
+        foodDetails.totalSold = 0;
 
         axios.post('http://localhost:3000/add-food', foodDetails)
             .then(res => {

@@ -18,7 +18,7 @@ const OrderCard = ({ orderData, allOrders, setAllOrders }) => {
             cancelButtonText: "Dismiss"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:3000/order/${orderId}`)
+                axios.delete(`http://localhost:3000/cancel-order/${orderId}`)
                     .then(res => {
                         if (res.data.deletedCount) {
                             setAllOrders(allOrders.filter(order => order.orderId !== orderId));

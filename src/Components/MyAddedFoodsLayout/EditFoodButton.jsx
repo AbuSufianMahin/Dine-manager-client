@@ -18,7 +18,7 @@ const EditFoodButton = ({ foodDetails, setFoodDetails }) => {
         newFoodData.price = parseInt(newFoodData.price);
         newFoodData.quantity = parseInt(newFoodData.quantity);
 
-        const { _id, ...foodData } = foodDetails;
+        const { _id, totalSold, ...foodData } = foodDetails;
 
         let isSame = true;
         for (const key in foodData) {
@@ -48,6 +48,7 @@ const EditFoodButton = ({ foodDetails, setFoodDetails }) => {
         }
         else {
             newFoodData._id = _id;
+            newFoodData.totalSold = totalSold;
             axios.put('http://localhost:3000/edit-my-food', newFoodData)
                 .then(res => {
                     if (res.data.modifiedCount) {
@@ -130,7 +131,6 @@ const EditFoodButton = ({ foodDetails, setFoodDetails }) => {
                         <div className='flex justify-end gap-2 mt-5'>
                             <button type='submit' className='btn btn-success text-white'>Submit</button>
                             <button type='button' className='btn text-white btn-primary' onClick={() => document.getElementById(`my_modal_${_id}`).close()}>Close</button>
-
                         </div>
                     </form>
 
