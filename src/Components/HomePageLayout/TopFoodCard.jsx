@@ -9,7 +9,7 @@ const TopFoodCard = ({ foodData }) => {
         <div
             className='shadow-md border border-secondary p-5 rounded-lg'>
 
-            <div className='h-full flex flex-col justify-between'>
+            <div className='flex flex-col justify-between'>
                 <img src={foodImageURL} alt={foodName} className='w-full rounded-xl' />
 
                 <div className='flex justify-between items-center mt-5'>
