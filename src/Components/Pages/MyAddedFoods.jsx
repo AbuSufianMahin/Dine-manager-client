@@ -3,14 +3,16 @@ import { AuthContext } from '../../Provider/AuthContext';
 import LoadingBars from '../Common/LoadingBars';
 import MyAddedFoodsCard from '../MyAddedFoodsLayout/MyAddedFoodsCard';
 import NoFoodAdded from '../MyAddedFoodsLayout/NoFoodAdded';
-import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router';
+
+import useAccessAlert from '../../Hooks/useAccessAlert';
 
 const MyAddedFoods = () => {
     const { user } = use(AuthContext);
     const [myAddedFoods, setMyAddedFoods] = useState([]);
     const [loading, setLoading] = useState(true);
-    const navigate = useNavigate();
+
+    const showAccessAlert = useAccessAlert();
+
 
     useEffect(() => {
         fetch(`http://localhost:3000/my-added-food?email=${user.email}`,
@@ -20,34 +22,16 @@ const MyAddedFoods = () => {
                 }
             }
         ).then(res => res.json()).then(data => {
-            if (data.errorCode === 401) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Unauthorized',
-                    text: data.message,
-                    confirmButtonText: 'Login'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        navigate(-1);
-                    }
-                })
+            if (data.errorCode) {
+                showAccessAlert(data);
+                return;
             }
-            else if (data.errorCode === 403) {
-                Swal.fire({
-                    icon: 'error',
-                    title: data.message,
-                    text: "You do not have permission to access this resource",
-                    confirmButtonText: 'Okay'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        navigate(-1);
-                    }
-                })
-            }
+
+            setLoading(false);
             setMyAddedFoods(data);
             setLoading(false);
         });
-    }, [user.email, user.accessToken, navigate])
+    }, [user.email, user.accessToken, showAccessAlert])
 
     return (
         <section className='py-5 md:py-10 lg:py-20 min-h-[50vh]'>
