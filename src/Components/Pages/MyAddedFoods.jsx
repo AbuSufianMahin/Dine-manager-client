@@ -12,15 +12,13 @@ const MyAddedFoods = () => {
     const [loading, setLoading] = useState(true);
     const showAccessAlert = useAccessAlert();
 
-
     useEffect(() => {
         fetch(`http://localhost:3000/my-added-food?email=${user.email}`,
             {
                 headers: {
                     'Authorization': `Bearer ${user.accessToken}`
                 }
-            }
-        )
+            })
             .then(res => res.json())
             .then(data => {
                 if (data.errorCode) {

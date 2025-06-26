@@ -6,7 +6,7 @@ const useAccessAlert = () => {
         if (data.errorCode === 401) {
             Swal.fire({
                 icon: 'error',
-                title: data.message,
+                title: `error ${data.errorCode} - ${data.message}`,
                 text: customMessage || "Unauthorized operation detected",
                 confirmButtonText: 'Okay'
             })
@@ -14,7 +14,7 @@ const useAccessAlert = () => {
         else if (data.errorCode === 403) {
             Swal.fire({
                 icon: 'error',
-                title: data.message,
+                title: `error ${data.errorCode} - ${data.message}`,
                 text: customMessage || "You do not have permission to access this resource",
                 confirmButtonText: 'Okay'
             })

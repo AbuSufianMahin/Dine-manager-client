@@ -5,6 +5,7 @@ import { errorToastAlert } from '../../Utility/toastAlert';
 import { getTodayDate } from '../../Utility/liveDateGenerator';
 import axios from 'axios';
 import { successAlert } from '../../Utility/sweetAlert';
+import useAccessAlert from '../../Hooks/useAccessAlert';
 
 const PurchaseFoodPage = () => {
     const { user } = use(AuthContext);
@@ -14,6 +15,8 @@ const PurchaseFoodPage = () => {
     const [initialQuantity, setInitialQunatity] = useState(quantity);
     const [remainingQuantity, setRemainingQuantity] = useState(quantity);
     const [orderDate, setOrderDate] = useState({});
+
+    const showAccessAlert = useAccessAlert();
 
     useEffect(() => {
         const dateToday = getTodayDate();
@@ -25,7 +28,7 @@ const PurchaseFoodPage = () => {
         if (initialQuantity - e.target.value < 0) {
             errorToastAlert("You can not purchase more than the stoke available!");
             e.target.value = initialQuantity;
-            
+
         }
         else {
             setRemainingQuantity(initialQuantity - e.target.value);
@@ -37,18 +40,29 @@ const PurchaseFoodPage = () => {
         const orderQuantity = parseInt(e.target.orderQuantity.value);
         const buyerName = e.target.buyerName.value;
         const buyerEmail = e.target.buyerEmail.value;
-        if (parseInt(orderQuantity) === 0 ){
+        if (parseInt(orderQuantity) === 0) {
             errorToastAlert("You can not order 0 items!");
             return;
         }
 
-        axios.post('http://localhost:3000/purchase-food', { _id, orderQuantity, buyerName, buyerEmail, orderDate })
+        axios.post(`http://localhost:3000/purchase-food?email=${user.email}`, { _id, orderQuantity, buyerName, buyerEmail, orderDate },
+            {
+                headers: {
+                    'Authorization': `Bearer ${user.accessToken}`
+                }
+
+            })
             .then((res) => {
                 if (res.data.acknowledged) {
                     successAlert("Order Confirmed!", "Your food order has been placed successfully.")
                     e.target.reset();
                     setInitialQunatity(initialQuantity - orderQuantity);
                 }
+            })
+            .catch((error) => {
+                setRemainingQuantity(remainingQuantity + orderQuantity)
+                showAccessAlert(error.response.data,  "You do not have permission to do this operation");
+                e.target.reset();
             })
     }
     return (
