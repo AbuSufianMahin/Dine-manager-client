@@ -1,35 +1,26 @@
 import React from 'react';
-
-import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
-
-
 const useAccessAlert = () => {
 
-    const navigate = useNavigate();
-
-    const showAccessAlert = (data) => {
+    const showAccessAlert = (data, customMessage) => {
         if (data.errorCode === 401) {
             Swal.fire({
                 icon: 'error',
-                title: 'Unauthorized',
-                text: data.message,
+                title: data.message,
+                text: customMessage || "Unauthorized operation detected",
                 confirmButtonText: 'Okay'
             })
-            navigate(-1);
         }
         else if (data.errorCode === 403) {
             Swal.fire({
                 icon: 'error',
                 title: data.message,
-                text: "You do not have permission to access this resource",
+                text: customMessage || "You do not have permission to access this resource",
                 confirmButtonText: 'Okay'
             })
-            navigate(-1);
         }
     }
-    
-    return  showAccessAlert;
 
+    return  showAccessAlert;
 }
 export default useAccessAlert;

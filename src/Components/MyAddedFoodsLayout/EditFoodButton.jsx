@@ -5,10 +5,13 @@ import { AuthContext } from '../../Provider/AuthContext';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import { successAlert } from '../../Utility/sweetAlert';
+import useAccessAlert from '../../Hooks/useAccessAlert';
 
 const EditFoodButton = ({ foodDetails, setFoodDetails }) => {
     const { user } = use(AuthContext);
     const { _id, foodImageURL, foodName, foodCategory, foodDescription, price, foodOrigin, quantity } = foodDetails;
+
+    const showAccessAlert = useAccessAlert();
 
     const handleEditFood = (e) => {
         e.preventDefault();
@@ -49,13 +52,26 @@ const EditFoodButton = ({ foodDetails, setFoodDetails }) => {
         else {
             newFoodData._id = _id;
             newFoodData.totalSold = totalSold;
-            axios.put('http://localhost:3000/edit-my-food', newFoodData)
+            axios.put(`http://localhost:3000/edit-my-food?email=${user.email}`, newFoodData, {
+                headers: {
+                    'Authorization': `Bearer ${user.accessToken}`
+                }
+            })
                 .then(res => {
+                    const data = res.data;
+
+                    console.log("NOT IN CATCH")
+                    console.log(data);
                     if (res.data.modifiedCount) {
                         document.getElementById(`my_modal_${_id}`).close();
                         successAlert("Success!", "Your food data has been updated successfully.");
                         setFoodDetails(newFoodData);
                     }
+                })
+                .catch(error => {
+                    document.getElementById(`my_modal_${_id}`).close();
+                    showAccessAlert(error.response.data);
+                    e.target.reset();
                 });
         }
     }
