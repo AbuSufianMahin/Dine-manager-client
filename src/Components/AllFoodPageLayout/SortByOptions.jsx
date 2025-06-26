@@ -4,7 +4,7 @@ const SortByOptions = ({setAllFoodData, setDataLoading}) => {
 
     const handleSortByOnChange = (option) => {
         setDataLoading(true);
-        fetch(`http://localhost:3000/sorted-food-data?sortBy=${option}`).then(res => res.json()).then(data => {
+        fetch(`https://restaurant-management-server-tan-pi.vercel.app/sorted-food-data?sortBy=${option}`).then(res => res.json()).then(data => {
             setAllFoodData(data);
             setDataLoading(false);
         });

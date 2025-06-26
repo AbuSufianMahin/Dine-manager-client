@@ -25,7 +25,7 @@ const MyAddedFoodsCard = ({ foodData, myAddedFoods, setMyAddedFoods }) => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:3000/food/${foodId}?email=${user.email}`, {
+                axios.delete(`https://restaurant-management-server-tan-pi.vercel.app/food/${foodId}?email=${user.email}`, {
                     headers: {
                         'Authorization': `Bearer ${user.accessToken}`
                     }

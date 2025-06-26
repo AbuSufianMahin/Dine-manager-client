@@ -13,7 +13,7 @@ const MyAddedFoods = () => {
     const showAccessAlert = useAccessAlert();
 
     useEffect(() => {
-        fetch(`http://localhost:3000/my-added-food?email=${user.email}`,
+        fetch(`https://restaurant-management-server-tan-pi.vercel.app/my-added-food?email=${user.email}`,
             {
                 headers: {
                     'Authorization': `Bearer ${user.accessToken}`

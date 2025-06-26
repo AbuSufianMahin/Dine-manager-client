@@ -37,12 +37,12 @@ const router = createBrowserRouter([
             },
             {
                 path: '/food-details/:id',
-                loader: ({ params }) => fetch(`http://localhost:3000/food-details/${params.id}`),
+                loader: ({ params }) => fetch(`https://restaurant-management-server-tan-pi.vercel.app/food-details/${params.id}`),
                 Component: FoodDetails
             },
             {
                 path: '/purchase-food/:id',
-                loader: ({ params }) => fetch(`http://localhost:3000/food-details/${params.id}`),
+                loader: ({ params }) => fetch(`https://restaurant-management-server-tan-pi.vercel.app/food-details/${params.id}`),
                 element:
                     <PrivateRoute>
                         <PurchaseFoodPage></PurchaseFoodPage>

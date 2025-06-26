@@ -45,7 +45,7 @@ const PurchaseFoodPage = () => {
             return;
         }
 
-        axios.post(`http://localhost:3000/purchase-food?email=${user.email}`, { _id, orderQuantity, buyerName, buyerEmail, orderDate },
+        axios.post(`https://restaurant-management-server-tan-pi.vercel.app/purchase-food?email=${user.email}`, { _id, orderQuantity, buyerName, buyerEmail, orderDate },
             {
                 headers: {
                     'Authorization': `Bearer ${user.accessToken}`

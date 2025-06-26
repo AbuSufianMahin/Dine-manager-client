@@ -13,7 +13,7 @@ const SearchBar = ({ setAllFoodData }) => {
         clearTimeout(timerRef.current);
         
         timerRef.current = setTimeout(() => {
-            fetch(`http://localhost:3000/search-food?foodName=${foodName}`)
+            fetch(`https://restaurant-management-server-tan-pi.vercel.app/search-food?foodName=${foodName}`)
                 .then(res => res.json())
                 .then(data => {
                     setAllFoodData(data);

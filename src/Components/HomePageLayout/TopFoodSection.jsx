@@ -6,7 +6,7 @@ const TopFoodSection = () => {
     const [topFoods, setTopFoods] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3000/top-food-details')
+        fetch('https://restaurant-management-server-tan-pi.vercel.app/top-food-details')
             .then(res => res.json())
             .then(data => setTopFoods(data))
     },[])

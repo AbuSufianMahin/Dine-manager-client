@@ -21,7 +21,7 @@ const AddFoodPage = () => {
         foodDetails.quantity = parseInt(foodDetails.quantity);
         foodDetails.totalSold = 0;
 
-        axios.post('http://localhost:3000/add-food', foodDetails,
+        axios.post(`https://restaurant-management-server-tan-pi.vercel.app/add-food?email=${user.email}`, foodDetails,
             {
                 headers: {
                     'Authorization': `Bearer ${user.accessToken}`

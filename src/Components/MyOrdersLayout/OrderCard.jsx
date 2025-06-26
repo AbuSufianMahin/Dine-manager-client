@@ -22,7 +22,7 @@ const OrderCard = ({ orderData, allOrders, setAllOrders }) => {
             cancelButtonText: "Dismiss"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:3000/cancel-order/${orderId}?email=${user.email}`, {
+                axios.delete(`https://restaurant-management-server-tan-pi.vercel.app/cancel-order/${orderId}?email=${user.email}`, {
                     headers: {
                         'Authorization': `Bearer ${user.accessToken}`
                     }

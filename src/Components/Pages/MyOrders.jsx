@@ -14,7 +14,7 @@ const MyOrders = () => {
 
     useEffect(() => {
         
-        fetch(`http://localhost:3000/my-orders?email=${user.email}`, {
+        fetch(`https://restaurant-management-server-tan-pi.vercel.app/my-orders?email=${user.email}`, {
             headers: {
                 'Authorization': `Bearer ${user.accessToken}`
             }

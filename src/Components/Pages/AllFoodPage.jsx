@@ -10,7 +10,7 @@ const AllFoodPage = () => {
     const [allFoodData, setAllFoodData] = useState([]);
     const [dataLoading, setDataLoading] = useState(true);
     useEffect(() => {
-        fetch("http://localhost:3000/food-details").then(res => res.json()).then(data => {
+        fetch("https://restaurant-management-server-tan-pi.vercel.app/food-details").then(res => res.json()).then(data => {
             setAllFoodData(data);
             setDataLoading(false);
         });

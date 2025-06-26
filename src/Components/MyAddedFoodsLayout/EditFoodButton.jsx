@@ -52,7 +52,7 @@ const EditFoodButton = ({ foodDetails, setFoodDetails }) => {
         else {
             newFoodData._id = _id;
             newFoodData.totalSold = totalSold;
-            axios.put(`http://localhost:3000/edit-my-food?email=${user.email}`, newFoodData, {
+            axios.put(`https://restaurant-management-server-tan-pi.vercel.app/edit-my-food?email=${user.email}`, newFoodData, {
                 headers: {
                     'Authorization': `Bearer ${user.accessToken}`
                 }
