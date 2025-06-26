@@ -10,9 +10,7 @@ const MyAddedFoods = () => {
     const { user } = use(AuthContext);
     const [myAddedFoods, setMyAddedFoods] = useState([]);
     const [loading, setLoading] = useState(true);
-
     const showAccessAlert = useAccessAlert();
-
 
     useEffect(() => {
         fetch(`http://localhost:3000/my-added-food?email=${user.email}`,
@@ -21,16 +19,20 @@ const MyAddedFoods = () => {
                     'Authorization': `Bearer ${user.accessToken}`
                 }
             }
-        ).then(res => res.json()).then(data => {
-            if (data.errorCode) {
-                showAccessAlert(data);
-                return;
-            }
+        )
+            .then(res => res.json())
+            .then(data => {
+                if (data.errorCode) {
+                    showAccessAlert(data);
+                    setLoading(false);
+                    return;
+                }
+                
+                setMyAddedFoods(data);
+                // console.log("HI")
+                setLoading(false);
 
-            setLoading(false);
-            setMyAddedFoods(data);
-            setLoading(false);
-        });
+            });
     }, [user.email, user.accessToken, showAccessAlert])
 
     return (
@@ -51,7 +53,7 @@ const MyAddedFoods = () => {
                                             :
                                             <div className='min-h-[30vh] grid grid-cols-1 lg:grid-cols-2 gap-5'>
                                                 {
-                                                    myAddedFoods.map(foodData => <MyAddedFoodsCard key={foodData._id} foodData={foodData} myAddedFoods={myAddedFoods} setMyAddedFoods={setMyAddedFoods}></MyAddedFoodsCard>)
+                                                    myAddedFoods.map(foodData => <MyAddedFoodsCard key={foodData._id} user={user} foodData={foodData} myAddedFoods={myAddedFoods} setMyAddedFoods={setMyAddedFoods}></MyAddedFoodsCard>)
                                                 }
                                             </div>
                                     }

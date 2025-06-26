@@ -2,8 +2,6 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const TopFoodCard = ({ foodData }) => {
-    console.log(foodData);
-
     const { _id, foodName, foodImageURL, foodOrigin, price, totalSold, foodCategory } = foodData;
     return (
         <div

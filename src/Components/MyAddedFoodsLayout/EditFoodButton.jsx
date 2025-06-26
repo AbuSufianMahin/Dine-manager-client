@@ -58,10 +58,6 @@ const EditFoodButton = ({ foodDetails, setFoodDetails }) => {
                 }
             })
                 .then(res => {
-                    const data = res.data;
-
-                    console.log("NOT IN CATCH")
-                    console.log(data);
                     if (res.data.modifiedCount) {
                         document.getElementById(`my_modal_${_id}`).close();
                         successAlert("Success!", "Your food data has been updated successfully.");
@@ -70,7 +66,7 @@ const EditFoodButton = ({ foodDetails, setFoodDetails }) => {
                 })
                 .catch(error => {
                     document.getElementById(`my_modal_${_id}`).close();
-                    showAccessAlert(error.response.data);
+                    showAccessAlert(error.response.data, "You do not have permission to modify this content.");
                     e.target.reset();
                 });
         }

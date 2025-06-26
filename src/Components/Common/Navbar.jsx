@@ -7,7 +7,7 @@ import { AuthContext } from '../../Provider/AuthContext';
 const Navbar = () => {
 
     const { user, signOutUser } = useContext(AuthContext);
-    // console.log(user.photoURL)
+
     return (
         <section className='bg-accent'>
 
