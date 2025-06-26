@@ -4,10 +4,12 @@ import { Link } from 'react-router';
 import { AuthContext } from '../../Provider/AuthContext';
 import axios from 'axios';
 import { successAlert } from '../../Utility/sweetAlert';
+import useAccessAlert from '../../Hooks/useAccessAlert';
 
 const AddFoodPage = () => {
     const { user } = use(AuthContext);
     const [category, setCategory] = useState(false);
+    const showAccessAlert = useAccessAlert();
 
     const handleAddFood = e => {
         e.preventDefault();
@@ -19,7 +21,12 @@ const AddFoodPage = () => {
         foodDetails.quantity = parseInt(foodDetails.quantity);
         foodDetails.totalSold = 0;
 
-        axios.post('http://localhost:3000/add-food', foodDetails)
+        axios.post('http://localhost:3000/add-food', foodDetails,
+            {
+                headers: {
+                    'Authorization': `Bearer ${user.accessToken}`
+                }
+            })
             .then(res => {
                 if (res.data.acknowledged) {
                     successAlert('Food Added!', 'Your food item has been successfully added to the menu.')
@@ -28,6 +35,9 @@ const AddFoodPage = () => {
                             setCategory(false);
                         })
                 }
+            })
+            .catch((error) => {
+                showAccessAlert(error.response.data, "You do not have permission to modify this content.");
             })
 
     }

@@ -1,11 +1,15 @@
 import axios from 'axios';
-import React from 'react';
+import React, { use } from 'react';
 import { Link } from 'react-router';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../Provider/AuthContext';
+import useAccessAlert from '../../Hooks/useAccessAlert';
 
 const OrderCard = ({ orderData, allOrders, setAllOrders }) => {
+    const { user } = use(AuthContext);
     const { _id, orderId, foodAuthorName, foodImageURL, foodName, orderDate, orderQuantity, price } = orderData;
 
+    const showAccessAlert = useAccessAlert();
     const handleCancelOrder = (orderId) => {
         Swal.fire({
             title: "Are you sure?",
@@ -18,7 +22,11 @@ const OrderCard = ({ orderData, allOrders, setAllOrders }) => {
             cancelButtonText: "Dismiss"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:3000/cancel-order/${orderId}`)
+                axios.delete(`http://localhost:3000/cancel-order/${orderId}?email=${user.email}`, {
+                    headers: {
+                        'Authorization': `Bearer ${user.accessToken}`
+                    }
+                })
                     .then(res => {
                         if (res.data.deletedCount) {
                             setAllOrders(allOrders.filter(order => order.orderId !== orderId));
@@ -28,7 +36,11 @@ const OrderCard = ({ orderData, allOrders, setAllOrders }) => {
                                 icon: "success"
                             });
                         }
-                    });
+                    })
+                    .catch(error => {
+                        showAccessAlert(error.response.data, "You do not have permission to modify this content.");
+                    })
+                    ;
             }
         });
     }

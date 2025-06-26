@@ -12,6 +12,7 @@ const MyAddedFoods = () => {
     const [loading, setLoading] = useState(true);
     const showAccessAlert = useAccessAlert();
 
+
     useEffect(() => {
         fetch(`http://localhost:3000/my-added-food?email=${user.email}`,
             {
@@ -27,13 +28,11 @@ const MyAddedFoods = () => {
                     setLoading(false);
                     return;
                 }
-                
                 setMyAddedFoods(data);
-                // console.log("HI")
                 setLoading(false);
 
             });
-    }, [user.email, user.accessToken, showAccessAlert])
+    }, [user.email, user.accessToken])
 
     return (
         <section className='py-5 md:py-10 lg:py-20 min-h-[50vh]'>

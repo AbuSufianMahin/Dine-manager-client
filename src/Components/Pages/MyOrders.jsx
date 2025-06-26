@@ -28,7 +28,7 @@ const MyOrders = () => {
                 setAllOrders(data);
                 setLoading(false);
             })
-    }, [user.email, user.accessToken, showAccessAlert]);
+    }, [user.email, user.accessToken]);
 
     return (
         <section className='py-5 md:py-10 lg:py-20 min-h-[50vh]'>

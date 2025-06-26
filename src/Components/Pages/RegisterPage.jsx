@@ -66,7 +66,7 @@ const RegisterPage = () => {
                         navigate(location.state || '/');
                     })
             })
-            .catch(error => console.log(error))
+            .catch(error => errorAlert(error.message))
     }
 
     return (
