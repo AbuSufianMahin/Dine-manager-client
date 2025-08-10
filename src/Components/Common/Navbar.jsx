@@ -34,7 +34,7 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 text-lg">
-                        <NavBarLinks></NavBarLinks>
+                        <NavBarLinks user={user}></NavBarLinks>
                     </ul>
                 </div>
                 <div className="navbar-end items-center gap-2 md:gap-5">
