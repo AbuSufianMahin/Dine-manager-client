@@ -3,7 +3,6 @@ import { NavLink } from 'react-router';
 
 const NavBarLinks = ({ user }) => {
 
-
     const commonLinks = [
         { name: "Home", path: "/" },
         { name: "All foods", path: "/food-details" },
@@ -21,7 +20,7 @@ const NavBarLinks = ({ user }) => {
             {
                 commonLinks.map(
                     (linkInfo, index) =>
-                        <li key={index} className='mr-5 font-semibold'><NavLink
+                        <li key={index} className='font-semibold text-base w-1/2 md:w-fit'><NavLink
                             to={linkInfo.path}
                             className={({ isActive }) =>
                                 isActive ? "border-b-2 rounded-none" : ""
@@ -35,7 +34,7 @@ const NavBarLinks = ({ user }) => {
                 user &&
                 privateLinks.map(
                     (linkInfo, index) =>
-                        <li key={index} className='mr-5 font-semibold'><NavLink
+                        <li key={index} className='font-semibold text-base w-1/2 md:w-fit'><NavLink
                             to={linkInfo.path}
                             className={({ isActive }) =>
                                 isActive ? "border-b-2 rounded-none" : ""
