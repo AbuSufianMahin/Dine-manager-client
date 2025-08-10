@@ -17,7 +17,7 @@ const Navbar = () => {
     return (
         <section className='bg-accent'>
 
-            <nav className="w-11/12 md:w-10/12 max-w-7xl mx-auto navbar px-0 py-2 md:py-4">
+            <nav className="w-11/12 md:w-10/12 max-w-7xl mx-auto navbar px-0 py-2">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex="0" role="button" className="btn btn-ghost px-2 lg:hidden">

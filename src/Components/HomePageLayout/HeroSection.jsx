@@ -11,10 +11,10 @@ import 'swiper/css/pagination';
 const HeroSection = () => {
     return (
         <section className='py-10 lg:py-20 bg-[#211F1F]'>
-            <div className='flex flex-col-reverse md:flex-row gap-5 lg:gap-10 rounded-lg items-center justify-between mx-auto w-11/12 md:w-10/12'>
-                <div className='text-center md:text-start lg:py-10 mt-10 text-white'>
+            <div className='flex flex-col-reverse md:flex-row gap-5 lg:gap-10 rounded-lg items-center justify-between mx-auto w-11/12 md:w-10/12 max-w-7xl'>
+                <div className='text-center md:text-start lg:py-10 mt-4 md:mt-10 text-white'>
                     <h1 className='text-4xl lg:text-6xl font-semibold'>The Taste that make you feel awesome </h1>
-                    <p className='my-5 lg:text-lg'>Experience mouthwatering flavors crafted with care. From the first bite to the last, every dish is made to delight your senses and leave you craving more.</p>
+                    <p className='my-3 lg:my-8 text-sm lg:text-lg'>Experience mouthwatering flavors crafted with care. From the first bite to the last, every dish is made to delight your senses and leave you craving more.</p>
                     <Link to='/food-details'><button className='btn btn-accent text-white'>Explore Our Menu</button></Link>
                 </div>
                 <div className='md:mt-5 w-11/12 md:w-1/2'>
