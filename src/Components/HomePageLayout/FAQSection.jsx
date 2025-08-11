@@ -30,7 +30,7 @@ const FAQSection = () => {
         <section className='py-5 md:py-10 lg:py-20'>
             <div className="w-11/12 md:w-10/12 max-w-7xl mx-auto">
                 <h1 className="text-3xl md:text-4xl font-bold mb-6 text-center">Frequently Asked Questions</h1>
-                <div className="mt-5 flex items-center gap-5">
+                <div className="mt-5 flex items-center">
                     <div className="space-y-2 flex-5">
                         {faqs.map((faq, index) => (
                             <div
@@ -47,8 +47,8 @@ const FAQSection = () => {
                             </div>
                         ))}
                     </div>
-                    <div className="hidden md:flex flex-4">
-                        <Lottie animationData={thinkingAnimation} className="h-[400px]"></Lottie>
+                    <div className="hidden md:flex flex-4 lg:flex-3">
+                        <Lottie animationData={thinkingAnimation} className="h-[400px] w-fit ml-auto"></Lottie>
                     </div>
                 </div>
             </div>
