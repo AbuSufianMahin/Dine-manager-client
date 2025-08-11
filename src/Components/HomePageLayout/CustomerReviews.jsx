@@ -25,7 +25,7 @@ const CustomerReviews = () => {
     }
 
     return (
-        <section className="py-5 md:py-10 lg:py-20">
+        <section className="pt-5 md:pt-10 lg:pt-20">
             <div className='w-11/12 md:w-10/12 max-w-7xl mx-auto'>
                 <h1 className="text-3xl md:text-4xl font-bold mb-6 text-center">Customer Reviews</h1>
                 <div className='p-8 lg:p-10 rounded-xl bg-base-200 mt-6 lg:mt-10'>
