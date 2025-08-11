@@ -28,7 +28,7 @@ const CustomerReviews = () => {
         <section className="pt-5 md:pt-10 lg:pt-20">
             <div className='w-11/12 md:w-10/12 max-w-7xl mx-auto'>
                 <h1 className="text-3xl md:text-4xl font-bold mb-6 text-center">Customer Reviews</h1>
-                <div className='p-8 lg:p-10 rounded-xl bg-base-200 mt-6 lg:mt-10'>
+                <div className='p-4 lg:p-10 rounded-xl bg-base-200 mt-6 lg:mt-10'>
                     <Swiper
                         pagination={{
                             clickable: true,
@@ -42,7 +42,7 @@ const CustomerReviews = () => {
                         {
                             groupedReviews.map((group, index) =>
                                 <SwiperSlide key={index}>
-                                    <div className="w-full mx-2 md:mx-3 lg:mx-4 grid gap-4 md:gap-6 lg:gap-8 grid-cols-1 md:grid-cols-3">
+                                    <div className="w-full mx-2 md:mx-3 lg:mx-4 grid gap-4 lg:gap-8 grid-cols-1 md:grid-cols-3">
                                         {
                                             group.map((review, i) =>
                                                 <div key={i} className="border-2 border-base-100 bg-base-300 rounded-xl p-5 lg:p-10 flex flex-col items-center">
@@ -54,7 +54,7 @@ const CustomerReviews = () => {
                                                             <h1 className="font-bold text-center">{review.username}</h1>
                                                         </div>
                                                     </div>
-                                                    <div className="text-center space-y-3 p-2 md:p-5 lg:text-justify">
+                                                    <div className="text-center space-y-3 p-2 lg:p-5 lg:text-justify">
                                                         <div className="flex gap-2 items-center justify-center">
                                                             <img src="https://i.ibb.co/LzTkRQny/star.png" alt="star rating" />
                                                             <p className="text-lg">{review.rating}</p>

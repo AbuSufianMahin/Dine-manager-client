@@ -36,7 +36,7 @@ const FAQSection = () => {
                             <div
                                 key={index}
                                 tabIndex={0}
-                                className="collapse collapse-arrow bg-base-100 border border-base-300"
+                                className="collapse collapse-arrow border-2 border-base-300 bg-base-200"
                             >
                                 <div className="collapse-title font-semibold">
                                     {faq.question}
