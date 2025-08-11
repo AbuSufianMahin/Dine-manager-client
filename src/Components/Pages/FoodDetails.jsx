@@ -9,7 +9,7 @@ const FoodDetails = () => {
 
     return (
         <section>
-            <div className="w-11/12 lg:w-4/5 xl:w-3/5 mx-auto py-5 md:py-10 lg:py-15">
+            <div className="w-11/12 md:w-10/12 max-w-7xl mx-auto py-5 md:py-10 lg:py-15">
                 <button
                     onClick={() => navigate(-1)}
                     className="mb-4 text-sm hover:underline hover:cursor-pointer"
