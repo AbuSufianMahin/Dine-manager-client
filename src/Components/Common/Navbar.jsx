@@ -26,7 +26,7 @@ const Navbar = () => {
                         <ul
                             tabIndex="0"
                             className="menu menu-sm gap-1 dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-4 border-2">
-                            <NavBarLinks></NavBarLinks>
+                            <NavBarLinks user={user}></NavBarLinks>
 
                             <div className="divider my-2 md:hidden"></div>
 

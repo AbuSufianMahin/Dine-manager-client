@@ -1,0 +1,15 @@
+.mySwiper .swiper-pagination-bullet {
+  width: 10px;       /* width of each bullet */
+  height: 10px;      /* height of each bullet */
+  background-color: #ccc; /* optional: change default color */
+  opacity: 1;        /* make sure visible */
+  margin: 0 6px;     /* spacing between bullets */
+  transition: background-color 0.3s;
+}
+
+/* Active bullet style */
+.mySwiper .swiper-pagination-bullet-active {
+  background-color: #FF0B56; /* example: purple */
+  width: 12px;   /* make active bullet bigger */
+  height: 12px;
+}
