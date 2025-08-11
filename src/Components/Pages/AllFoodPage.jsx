@@ -18,7 +18,7 @@ const AllFoodPage = () => {
 
     return (
         <section className='py-5 md:py-10 lg:py-20'>
-            <div className='w-11/12 md:w-10/12 mx-auto'>
+            <div className='w-11/12 md:w-10/12 max-w-7xl mx-auto'>
                 <h1 className='text-center text-2xl md:text-4xl font-bold'>Explore All Delicious Foods</h1>
                 <div className='flex flex-col gap-5 md:flex-row md:items-center justify-center md:justify-between mt-5 md:mt-10'>
                     <SearchBar setAllFoodData={setAllFoodData}></SearchBar>
