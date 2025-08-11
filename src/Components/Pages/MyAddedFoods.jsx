@@ -38,7 +38,7 @@ const MyAddedFoods = () => {
                 !myAddedFoods.errorCode &&
                 <>
                     <h1 className='text-center text-2xl md:text-4xl font-bold'>Your Added Food</h1>
-                    <div className='my-5 md:my-10 w-11/12 md:w-10/12 mx-auto'>
+                    <div className='my-5 md:my-10 w-11/12 md:w-10/12 max-w-7xl mx-auto'>
                         {
                             loading ?
                                 <LoadingBars></LoadingBars>
@@ -48,7 +48,7 @@ const MyAddedFoods = () => {
                                         myAddedFoods.length === 0 ?
                                             <NoFoodAdded></NoFoodAdded>
                                             :
-                                            <div className='min-h-[30vh] grid grid-cols-1 lg:grid-cols-2 gap-5'>
+                                            <div className='min-h-[30vh] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5'>
                                                 {
                                                     myAddedFoods.map(foodData => <MyAddedFoodsCard key={foodData._id} user={user} foodData={foodData} myAddedFoods={myAddedFoods} setMyAddedFoods={setMyAddedFoods}></MyAddedFoodsCard>)
                                                 }

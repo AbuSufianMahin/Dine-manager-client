@@ -49,15 +49,21 @@ const MyAddedFoodsCard = ({ foodData, myAddedFoods, setMyAddedFoods }) => {
     }
 
     return (
-        <div className='border border-primary p-5 rounded-xl flex flex-col md:flex-row lg:flex-col xl:flex-row justify-between items-center gap-5'>
-            <div className='flex flex-col md:flex-row lg:flex-col xl:flex-row items-center gap-3 lg:gap-5'>
-                <div className='flex-2'>
-                    <img src={foodImageURL} alt={`${foodName} image`} className='rounded-lg w-full' />
+        <div className='border border-primary p-5 rounded-xl flex flex-col lg:flex-col justify-between items-center gap-5'>
+            <div className='flex flex-col items-center gap-2 lg:gap-4'>
+                <div className="relative">
+                    <img
+                        src={foodImageURL}
+                        alt={foodName}
+                        className="w-full rounded-lg"
+                    />
+                    <p className="absolute top-0 right-0 m-2 rounded-xl bg-sky-400 px-2 py-1 text-sm font-medium">
+                        {foodCategory}
+                    </p>
                 </div>
                 <div className='flex-3'>
-                    <div className='flex items-center gap-3'>
+                    <div>
                         <Link to={`/food-details/${_id}`}><h1 className='text-2xl font-bold transition duration-200 hover:text-primary'>{foodName}</h1></Link>
-                        <p className='text-center rounded-xl bg-sky-400 w-fit px-2'>{foodCategory}</p>
                     </div>
 
                     <p className='line-clamp-2 lg:my-3'>{foodDescription}</p>
@@ -71,7 +77,7 @@ const MyAddedFoodsCard = ({ foodData, myAddedFoods, setMyAddedFoods }) => {
                 </div>
             </div>
 
-            <div className='flex md:flex-col lg:flex-row xl:flex-col justify-between gap-3'>
+            <div className='flex justify-between gap-3'>
                 <Link to={`/food-details/${_id}`}><button className='btn btn-sm btn-info text-white'><CgMoreO size={20} /></button></Link>
                 <EditFoodButton foodDetails={foodDetails} setFoodDetails={setFoodDetails}></EditFoodButton>
                 <button className='btn btn-sm btn-error text-white' onClick={() => handleDelete(_id)}><MdDelete size={20} /></button>
