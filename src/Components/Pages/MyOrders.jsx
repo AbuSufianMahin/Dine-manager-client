@@ -35,7 +35,7 @@ const MyOrders = () => {
             {
                 !allOrders.errorCode &&
 
-                <div className='w-11/12 md:w-10/12 lg:w-2/3 xl:w-1/2 mx-auto'>
+                <div className='w-11/12 md:w-10/12 max-w-7xl mx-auto'>
                     {
                         isLoading ?
                             <div className='mt-5 min-h-[30vh]'>

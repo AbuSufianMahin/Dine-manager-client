@@ -16,7 +16,7 @@ const FoodGallery = () => {
     return (
         <div className="py-5 md:py-10 lg:py-20 text-center w-11/12 md:w-10/12 max-w-7xl mx-auto">
             <h1 className="text-center text-2xl md:text-4xl font-bold">A Feast for the Eyes</h1>
-            <div className="mt-5 md:mt-10 lg:mt-15 columns-2 md:columns-2 lg:columns-3 space-y-2 gap-2 md:space-y-3 md:gap-3">
+            <div className="mt-5 md:mt-10 columns-2 md:columns-2 lg:columns-3 space-y-2 gap-2 md:space-y-3 md:gap-3">
                 {slides.map((image, i) => (
 
                     <div key={i} className="overflow-hidden border-2 rounded-xl h-fit break-inside-auto">

@@ -38,7 +38,7 @@ const MyAddedFoods = () => {
                 !myAddedFoods.errorCode &&
                 <>
                     <h1 className='text-center text-2xl md:text-4xl font-bold'>Your Added Food</h1>
-                    <div className='my-5 md:my-10 w-11/12 md:w-10/12 max-w-7xl mx-auto'>
+                    <div className='mt-5 md:mt-10 w-11/12 md:w-10/12 max-w-7xl mx-auto'>
                         {
                             loading ?
                                 <LoadingBars></LoadingBars>
